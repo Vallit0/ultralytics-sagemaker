@@ -1,0 +1,11 @@
+import pandas as pd
+df = pd.read_csv("./titanic-data/train.csv")
+df = df[["Survived", "Pclass", "Sex", "Age", "SibSp", "Parch", "Fare"]].copy()
+df["Sex"] = df["Sex"].map({"male": 1, "female": 0})
+df["Age"] = df["Age"].fillna(df["Age"].median())
+train = df.sample(frac=0.8, random_state=42)
+validation = df.drop(train.index)
+train.to_csv("./titanic-data/train_processed.csv", index=False, header=False)
+validation.to_csv("./titanic-data/validation_processed.csv", index=False, header=False)
+print(f"Train: {len(train)} filas | Validation: {len(validation)} filas")
+print(f"Columnas: Survived, Pclass, Sex, Age, SibSp, Parch, Fare")

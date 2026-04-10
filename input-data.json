@@ -1,0 +1,24 @@
+[
+  {
+    "ChannelName": "train",
+    "DataSource": {
+      "S3DataSource": {
+        "S3DataType": "S3Prefix",
+        "S3Uri": "s3://ml-titanic-demo-1775778411/data/train/",
+        "S3DataDistributionType": "FullyReplicated"
+      }
+    },
+    "ContentType": "text/csv"
+  },
+  {
+    "ChannelName": "validation",
+    "DataSource": {
+      "S3DataSource": {
+        "S3DataType": "S3Prefix",
+        "S3Uri": "s3://ml-titanic-demo-1775778411/data/validation/",
+        "S3DataDistributionType": "FullyReplicated"
+      }
+    },
+    "ContentType": "text/csv"
+  }
+]
